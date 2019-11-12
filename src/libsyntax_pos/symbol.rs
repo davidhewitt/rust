@@ -718,6 +718,7 @@ symbols! {
         uniform_paths,
         universal_impl_trait,
         unmarked_api,
+        unreachable,
         unreachable_code,
         unrestricted_attribute_tokens,
         unsafe_no_drop_flag,

@@ -28,6 +28,7 @@ pub mod promote_consts;
 pub mod qualify_consts;
 pub mod qualify_min_const_fn;
 pub mod remove_noop_landing_pads;
+pub mod replace_unreachable_intrinsic;
 pub mod dump_mir;
 pub mod deaggregator;
 pub mod instcombine;
@@ -234,6 +235,7 @@ fn run_optimization_passes<'tcx>(
         &simplify_branches::SimplifyBranches::new("initial"),
         &remove_noop_landing_pads::RemoveNoopLandingPads,
         &cleanup_post_borrowck::CleanupNonCodegenStatements,
+        &replace_unreachable_intrinsic::ReplaceUnreachableIntrinsic::new(tcx),
 
         &simplify::SimplifyCfg::new("early-opt"),
 
